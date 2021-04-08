@@ -29,7 +29,7 @@
           }
         }
       },
-      "Spire.Doc/9.3.6": {
+      "Spire.Doc/9.4.1": {
         "type": "package",
         "dependencies": {
           "System.Drawing.Common": "5.0.0",
@@ -276,10 +276,10 @@
         "version.txt"
       ]
     },
-    "Spire.Doc/9.3.6": {
-      "sha512": "T3r7wEd0seS9CA6OulJ/XX3CDpOgBy1XQ5OewDHUWLZD4fR+vhHMO8oz9s/e2bQbCMv6BhqLvzMISaRkouC+jg==",
+    "Spire.Doc/9.4.1": {
+      "sha512": "l1FMsD3n/fjFZUxvs6KaUXVgnPuKVl6aVW81xJNavLrUOaMmYy1sX0A41S0n5h6SjAqfw23y98WIZYvBSVX6Lw==",
       "type": "package",
-      "path": "spire.doc/9.3.6",
+      "path": "spire.doc/9.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -320,7 +320,7 @@
         "lib/xamarinios/Spire.Pdf.dll",
         "lib/xamarinios/Spire.Pdf.xml",
         "license.txt",
-        "spire.doc.9.3.6.nupkg.sha512",
+        "spire.doc.9.4.1.nupkg.sha512",
         "spire.doc.nuspec"
       ]
     },
@@ -755,7 +755,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Spire.Doc >= 9.3.6",
+      "Spire.Doc >= 9.4.1",
       "Syroot.Windows.IO.KnownFolders >= 1.2.3"
     ]
   },
@@ -804,7 +804,7 @@
         "dependencies": {
           "Spire.Doc": {
             "target": "Package",
-            "version": "[9.3.6, )"
+            "version": "[9.4.1, )"
           },
           "Syroot.Windows.IO.KnownFolders": {
             "target": "Package",

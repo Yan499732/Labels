@@ -1,0 +1,11 @@
+URL: https://drive.google.com/uc?export=download&id=18Zvba4DqeCTPL4KNpA-khHJiFeqRwOI1
+Метки:
+company = "Компания";
+dir = "Дир";
+fio = "ФИО";
+add1 = https://i05.fotocdn.net/s115/89e07dbd6435d5e5/public_pin_l/2611793444.jpg;
+*val1 = ["Значение1", "Значение2", "Значение3"];
+*val2 = ["Значение1", "Значение2", "Значение3", "Значение4"];
+*val3 = ["Значение1", "Значение2"];
+
+*Метки для таблицы не доделаны

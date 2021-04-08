@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Spire.Doc;
 using Spire.Doc.Documents;
 using Spire.Doc.Fields;
-
+using System.Drawing;
 
 namespace Labels.Controllers
 {
@@ -52,6 +52,7 @@ namespace Labels.Controllers
             for (int i = 0; i < labels1.Length; i++)
             {
                 labels1[i] = re.Replace(labels1[i], ";");
+                labels1[i] = labels1[i].Substring(0, labels1[i].Length - 2);
 
                 //Текст
                 if (labels1[i].IndexOf(@"""") != -1 && labels1[i].IndexOf(@"[") == -1)
@@ -92,7 +93,70 @@ namespace Labels.Controllers
             Document document = new Document();
             document.LoadFromFile(Path + "\\Документ.docx");
 
-            document.Replace("<label>", "123", false, true);
+            //Текст
+            if (TextLabels.Any()) foreach (var Data in TextLabels) document.Replace("<label>" + Data.Key + "</label>", Data.Value, false, true);
+
+            //Изображения
+            if (PictureLabels.Any())
+            {
+                foreach (var Data in PictureLabels) webClient.DownloadFile(Data.Value, Path + "\\" + Data.Key + ".jpg");
+                Image[] image = new Image[100];
+                int i = 0;
+                foreach (var Data in PictureLabels)
+                {
+                    image[i] = Image.FromFile(Path + "\\" + Data.Key + ".jpg");
+                    i++;
+                }
+
+                i = 0;
+                int index = 0;
+                DocPicture pic = new DocPicture(document);
+                TextRange range = null;
+                TextSelection[] selections = new TextSelection[100];
+
+                foreach (var Data in PictureLabels)
+                {
+                    pic.LoadImage(image[i]);
+                    selections[i] = document.FindString("<label>" + Data.Key + "</label>", true, true);
+                    range = selections[i].GetAsOneRange();
+                    index = range.OwnerParagraph.ChildObjects.IndexOf(range);
+                    range.OwnerParagraph.ChildObjects.Insert(index, pic);
+                    range.OwnerParagraph.ChildObjects.Remove(range);
+                    i++;
+                }
+                i = 0;
+
+                //Удаление загруженных изображений
+                foreach (var Data in PictureLabels) System.IO.File.Delete(Path + "\\" + Data.Key + ".jpg");
+            }
+
+            //Таблицы
+            if (TableLabels.Any())
+            {
+                Table table = document.Sections[0].Tables[1] as Spire.Doc.Table;
+                TableRow row;
+                int length = 0;
+
+                foreach (var Data in TableLabels)
+                {
+                    if (Data.Value.Length > length) length = Data.Value.Length;
+                }
+
+                for (int i = 0; i < length; i++)
+                {
+                    row = table.AddRow();
+                }
+
+                //table.Rows.Insert(1, row);
+
+                //table.AddRow(true, 2);
+                //table.AddRow(false, 2);
+
+                foreach (var Data in TableLabels)
+                {
+
+                }
+            }
 
             document.SaveToFile(Path + "\\Документ.docx");
 
