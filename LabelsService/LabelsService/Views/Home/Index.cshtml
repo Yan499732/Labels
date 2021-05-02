@@ -16,10 +16,187 @@
         {
             <label>Поле для ввода URL-адреса:</label>
             <input type="text" class="form-control" name="URL" />
-            <label>Поле для ввода меток в формате: метка = значение:</label>
-            <textarea class="form-control" name="labels"></textarea>
+            <label>Таблица для ввода меток:</label>
+            <table id="dynamic" width="650" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <th scope="col">МЕТКА</th>
+                    <th scope="col">ЗНАЧЕНИЕ</th>
+                    <th scope="col">ТИП</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>&#8291;</td>
+                    <td>&#8291;</td>
+                    <td>&#8291;</td>
+                    <td></td>
+                </tr>
+            </table>
             <button class="btn btn-success">Начать</button>
         }
+
+        <script>
+            if (typeof window.DynamicTable !== 'function') {
+
+                new DynamicTable(window,
+                    document.getElementById("dynamic"),
+                    { 1: "val1", 2: "val2" });
+
+                function DynamicTable(GLOB, htmlTable, config) {
+                    if (!(this instanceof DynamicTable)) {
+                        return new DynamicTable(GLOB, htmlTable, config);
+                    }
+
+                    var DOC = GLOB.document,
+                        tableRows = htmlTable.rows,
+                        RLength = tableRows.length,
+                        CLength = tableRows[0].cells.length,
+                        inElement = null,
+                        button = null,
+                        butText = null,
+                        self = this,
+                        i, j;
+
+                    this.insertButtons = function () {
+                        htmlTable.className = "table table2";
+
+                        inElement = DOC.createElement("P");
+
+                        button = DOC.createElement("BUTTON");
+                        button.onclick = this.addRow;
+                        button.className = "btn btn-success btn-margin";
+
+                        butText = DOC.createTextNode("+");
+                        button.appendChild(butText);
+
+                        inElement.appendChild(button);
+
+                        button = DOC.createElement("BUTTON");
+                        button.onclick = this.delRow;
+                        button.className = "btn btn-success btn-margin";
+
+                        butText = DOC.createTextNode("-");
+                        button.appendChild(butText);
+
+                        inElement.appendChild(button);
+
+                        return inElement;
+                    };
+
+                    this.addRow = function (ev) {
+
+                        var e = ev || GLOB.event,
+                            target = e.target || e.srcElement,
+
+                            row = target.parentNode.parentNode.parentNode,
+
+                            cellCount = row.cells.length,
+
+                            index = row.rowIndex + 1,
+                            i;
+
+                        htmlTable.insertRow(index);
+
+                        for (i = 0; i < cellCount; i += 1) {
+
+                            htmlTable.rows[index].insertCell(i);
+
+                            if (i == cellCount - 1) {
+                                inElement = self.insertButtons();
+                            } else if (i == cellCount - 2) {
+                                inElement = DOC.createElement("SELECT");
+                                var optionElement1 = document.createElement("option");
+                                var optionElement2 = document.createElement("option");
+                                var optionElement3 = document.createElement("option");
+
+                                optionElement1.value = "Текстовая метка";
+                                optionElement1.text = "Текстовая метка";
+                                optionElement1.selected = true;
+                                inElement.appendChild(optionElement1);
+
+                                optionElement2.value = "Метка изображения";
+                                optionElement2.text = "Метка изображения";
+                                optionElement2.selected = true;
+                                inElement.appendChild(optionElement2);
+
+                                optionElement3.value = "Метка таблицы";
+                                optionElement3.text = "Метка таблицы";
+                                optionElement3.selected = true;
+                                inElement.appendChild(optionElement3);
+
+                                inElement.name = config[i + 1] + "[]";
+                                inElement.value = "Текстовая метка";
+                                inElement.className = "form-control input-margin";
+                            }
+                            else {
+                                inElement = DOC.createElement("INPUT");
+                                inElement.className = "form-control input-margin";
+                                inElement.name = config[i + 1] + "[]";
+                            }
+
+                            htmlTable.rows[index].cells[i].appendChild(inElement);
+                        }
+
+                        inElement = null;
+
+                        return false;
+                    };
+
+                    this.delRow = function (ev) {
+                        if (tableRows.length > 2) {
+                            htmlTable.deleteRow(this.parentNode.parentNode.parentNode.rowIndex);
+                        } else {
+                            return false;
+                        }
+                    };
+
+                    return (function () {
+                        for (i = 1; i < RLength; i += 1) {
+                            for (j = 0; j < CLength; j += 1) {
+                                if (j + 1 == CLength) {
+                                    inElement = self.insertButtons();
+                                } else if (j + 2 == CLength) {
+                                    inElement = DOC.createElement("SELECT");
+                                    var optionElement1 = document.createElement("option");
+                                    var optionElement2 = document.createElement("option");
+                                    var optionElement3 = document.createElement("option");
+
+                                    optionElement1.value = "Текстовая метка";
+                                    optionElement1.text = "Текстовая метка";
+                                    optionElement1.selected = true;
+                                    inElement.appendChild(optionElement1);
+
+                                    optionElement2.value = "Метка изображения";
+                                    optionElement2.text = "Метка изображения";
+                                    optionElement2.selected = true;
+                                    inElement.appendChild(optionElement2);
+
+                                    optionElement3.value = "Метка таблицы";
+                                    optionElement3.text = "Метка таблицы";
+                                    optionElement3.selected = true;
+                                    inElement.appendChild(optionElement3);
+
+                                    inElement.name = config[j + 1] + "[]";
+                                    inElement.value = "Текстовая метка";
+                                    inElement.className = "form-control input-margin";
+                                    tableRows[i].cells[j].firstChild.data = "";
+                                }
+                                else {
+                                    inElement = DOC.createElement("INPUT");
+                                    inElement.className = "form-control input-margin";
+                                    inElement.value = tableRows[i].cells[j].firstChild.data;
+                                    inElement.name = config[j + 1] + "[]";
+                                    tableRows[i].cells[j].firstChild.data = "";
+                                }
+                                tableRows[i].cells[j].appendChild(inElement);
+                                inElement = null;
+                            }
+                        }
+                    }());
+
+                }
+
+            }
+        </script>
     </section>
 </body>
 </html>

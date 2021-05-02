@@ -99,7 +99,6 @@ C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microso
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.Xml.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -157,7 +156,6 @@ C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.Data.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.Diagnostics.Contracts.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.Diagnostics.Debug.dll
-C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.Diagnostics.EventLog.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.Diagnostics.FileVersionInfo.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\refs\System.Diagnostics.Process.dll
@@ -353,3 +351,10 @@ C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Spire.Doc.dl
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Spire.License.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Spire.Pdf.dll
 C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Syroot.KnownFolders.dll
+C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Npgsql.dll
+C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Admin\Desktop\LabelsService\LabelsService\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
