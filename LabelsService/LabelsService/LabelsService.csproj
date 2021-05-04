@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\style.css" />
-    <None Include="wwwroot\Img\WordIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +16,10 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.5.1" />
     <PackageReference Include="Spire.Doc" Version="9.4.12" />
     <PackageReference Include="Syroot.Windows.IO.KnownFolders" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Img\" />
   </ItemGroup>
 
 </Project>
