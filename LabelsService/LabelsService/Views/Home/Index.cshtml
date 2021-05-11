@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<html>
+﻿<html>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -10,7 +6,22 @@
 <body class="body">
     <header>
         <h2>Labels Service</h2>
+        <h2>@ViewBag.Message</h2>
     </header>
+    <div>
+        @if (ViewBag.Title == "Not Error")
+        {
+            <div class="alert alert-success" role="alert">
+                <pre>@ViewBag.Message</pre>
+            </div>
+        }
+        else if (ViewBag.Title == "Error")
+        {
+            <div class="alert alert-danger" role="alert">
+                <pre>@ViewBag.Message</pre>
+            </div>
+        }
+    </div>
     <section>
         @using (Html.BeginForm())
         {
